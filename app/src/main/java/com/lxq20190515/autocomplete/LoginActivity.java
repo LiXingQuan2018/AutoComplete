@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
                 int acc = Integer.parseInt(account.getText().toString());
                 String pass = password.getText().toString();
                 try {
-                    URL url = new URL("http://10.83.216.23:8080/login_get.php?account=" + acc + "&password=" + pass);
+                    URL url = new URL("http://10.83.216.23/login_get.php?account=" + acc + "&password=" + pass);
                     connection = (HttpURLConnection) url.openConnection();
                     InputStream inputStream = connection.getInputStream();
                     reader = new BufferedReader(new InputStreamReader(inputStream));
@@ -75,5 +75,11 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         }).start();
+    }
+    public void register(View view){
+        if(account.getText().toString().equals("")){
+            Toast.makeText(this, "请先将资料填写完整", Toast.LENGTH_SHORT).show();
+            return;
+        }
     }
 }
