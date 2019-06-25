@@ -90,7 +90,18 @@ public class MainActivity extends AppCompatActivity {
         menu.add("GET登录测试").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                Intent intent=new Intent(MainActivity.this, LoginActivity.class);
+                intent.putExtra("method","get");
+                startActivity(intent);
+                return false;
+            }
+        });
+        menu.add("POST登录测试").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                Intent intent=new Intent(MainActivity.this, LoginActivity.class);
+                intent.putExtra("method","post");
+                startActivity(intent);
                 return false;
             }
         });
